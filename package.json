@@ -1,0 +1,39 @@
+{
+  "name": "express-react-ssr-starter",
+  "version": "1.0.0",
+  "description": "A starter for a project using ExpressJs and ReactJs with server side rendering.",
+  "main": "index.js",
+  "scripts": {
+    "build:back": "babel ./server -d dist",
+    "dev:build:front": "NODE_ENV=dev webpack",
+    "prod:build:front": "webpack",
+    "start": "nodemon --inspect=9230 dist/index.js",
+    "start:dev": "npm-run-all build:back --parallel dev:build:front start",
+    "start:prod": "npm run build:back && npm run prod:build:front && npm run start"
+  },
+  "author": "Ana Luiza Cicconi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "path": "^0.12.7",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "nodemon": "^1.12.1",
+    "npm-run-all": "^4.1.2",
+    "postcss-loader": "^2.0.8",
+    "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.0.1",
+    "webpack": "^3.8.1"
+  }
+}
