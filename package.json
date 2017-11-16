@@ -4,18 +4,21 @@
   "description": "A starter for a project using ExpressJs and ReactJs with server side rendering.",
   "main": "index.js",
   "scripts": {
-    "build:back": "babel ./server -d dist",
+    "dev:build:back": "babel ./server -d dist --watch",
+    "prod:build:back": "babel ./server -d dist",
     "dev:build:front": "NODE_ENV=dev webpack",
     "prod:build:front": "webpack",
-    "start": "nodemon --inspect=9230 dist/index.js",
-    "start:dev": "npm-run-all build:back --parallel dev:build:front start",
-    "start:prod": "npm run build:back && npm run prod:build:front && npm run start"
+    "dev:launch:server": "nodemon --inspect=9230 dist/index.js",
+    "prod:launch:server": "pm2 start dist/index.js",
+    "start:dev": "npm-run-all --parallel dev:build:back dev:build:front dev:launch:server",
+    "start:prod": "npm run prod:build:back && npm run prod:build:front && npm run prod:launch:server"
   },
   "author": "Ana Luiza Cicconi",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
     "path": "^0.12.7",
+    "pm2": "^2.7.2",
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
   },
