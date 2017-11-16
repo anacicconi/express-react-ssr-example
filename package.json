@@ -6,7 +6,7 @@
   "scripts": {
     "dev:build:back": "babel ./server -d dist --watch",
     "prod:build:back": "babel ./server -d dist",
-    "dev:build:front": "NODE_ENV=dev webpack",
+    "dev:build:front": "cross-env NODE_ENV=dev webpack",
     "prod:build:front": "webpack",
     "dev:launch:server": "nodemon --inspect=9230 dist/index.js",
     "prod:launch:server": "pm2 start dist/index.js",
@@ -28,6 +28,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
     "less": "^2.7.3",
