@@ -1,8 +1,8 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import App from '../components/app';
-import template from '../views/template';
+import App from 'server/components/app';
+import template from 'server/views/template';
 
 let router = express.Router();
 
