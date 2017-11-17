@@ -6,8 +6,8 @@
   "scripts": {
     "dev:build:back": "babel ./server -d dist --watch",
     "prod:build:back": "babel ./server -d dist",
-    "dev:build:front": "cross-env NODE_ENV=dev webpack",
-    "prod:build:front": "webpack",
+    "dev:build:front": "cross-env NODE_ENV=dev webpack --config webpack.config.dev.js",
+    "prod:build:front": "webpack --config webpack.config.prod.js",
     "dev:launch:server": "nodemon --inspect=9230 dist/index.js",
     "prod:launch:server": "pm2 start dist/index.js",
     "start:dev": "npm-run-all --parallel dev:build:back dev:build:front dev:launch:server",
@@ -20,7 +20,8 @@
     "path": "^0.12.7",
     "pm2": "^2.7.2",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-dom": "^16.1.1",
+    "react-hot-loader": "^3.1.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
@@ -38,6 +39,7 @@
     "postcss-loader": "^2.0.8",
     "style-loader": "^0.19.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "webpack-merge": "^4.1.1"
   }
 }
